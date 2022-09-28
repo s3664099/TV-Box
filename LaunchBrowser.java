@@ -1,5 +1,6 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class LaunchBrowser implements ActionListener {
 
@@ -30,21 +31,13 @@ public class LaunchBrowser implements ActionListener {
 			cmd = "firefox -kiosk http://"+webpage;
 		}
 		
-		
 		Runtime run = Runtime.getRuntime();
-		ProcessKill pr = new ProcessKill(run,cmd);
-	}
-	
-	public boolean getProcessRunning() {
-		return processRunning;
-	}
-	
-	public void setProcessRunning() {
-		processRunning = false;
-	}
-	
-	public void stopProcess() {
-		pr.destroy();
+		try {
+			pr = run.exec(cmd);
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 
 }

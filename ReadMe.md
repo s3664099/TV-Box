@@ -30,6 +30,10 @@ For it to run properly, it will need to be compiled as a jar file. [The followin
 The program will need to be configured for your location as it is currently configured for 
 Australia. Also, the program hasn't been configured to launch a VPN.
 
+Finally, many of these websites use passwords, and the kiosk mode, as far as I have discovered, will not accept third party password managers. To be able to launch the websites you will need to save your passwords using the browser's password manager. When you launch the webpage using the kiosk mode, the browser will then be able to access your password.
+
+To exit the JFrame without clicking the power off button (which shuts down the computer) press escape.
+
 ##Code
 **MainFrame**
 
@@ -45,9 +49,15 @@ Australia. Also, the program hasn't been configured to launch a VPN.
 I have not been able to figure out the best way to shut the Kiosk Mode down. At this stage the only
 way to shut it down and return to the main program is by pressing ctrl-F4.
 
+##Updates
+**Monday 26 Sept 2022**
+Moved the details of the buttons into an array, and created a loop to add the buttons to the panel.
+Removed the hard coding of the grid layout size.
+
+**Wednesday 28 Sept 2022**
+Added a key listener to the JFrame to close the program as a means to escape without shutting down the computer.
+
 ##To Do
-1. Refactor Code to make it more configurable. Remove hard coded numbers, and hard coded images and webpages. Write it so that another may be able to change the number of buttons and the webpages.
-2. Add blank buttons for buttons not being used.
-3. Add a process to select a video and launch it using the default video player
-4. Add a process to launch the default VPN in the background.
+1. Add a process to select a video and launch it using the default video player
+2. Add a process to launch the default VPN in the background.
 

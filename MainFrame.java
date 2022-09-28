@@ -1,46 +1,74 @@
+import java.awt.Component;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
 //Creates the main JFrame which contains buttons to launch the various sites
-public class MainFrame extends JFrame {
+public class MainFrame extends JFrame implements KeyListener {
 	
 	//Sets up full screen mode to remove the OS bars
 	static GraphicsDevice device = GraphicsEnvironment
 	        .getLocalGraphicsEnvironment().getScreenDevices()[0];
 	
+	//Array to hold the details of each of the buttons. Either launches a website
+	//Or something else
+	String[][] buttons = {{"youtube.jpg","www.youtube.com"},
+		{"netflix.jpeg","www.netflix.com"},
+		{"stan.png","www.stan.com.au"},
+		{"disney_plus.jpg","www.disneyplus.com"},
+		{"prime.png","www.primevideo.com"},
+		{"sbs.jpg","www.sbs.com.au/ondemand"},
+		{"iview.png","iview.abc.net.au"},
+		{"channel9.png","www.9now.com.au"},
+		{"channel7.png","7plus.com.au"},
+		{"channel10.png","10play.com.au"},
+		{"justwatch.png","www.justwatch.com"},
+		{"power.png","ShutDown"}
+	};
+	
+	//Defines the size of the grid layout
+	int width = 3;
+	int height = 5;
+	
 	public MainFrame() {
 		
 		super("Selection");
-				
-		add(CreateImage("youtube.jpg","www.youtube.com"));
-		add(CreateImage("netflix.jpeg","www.netflix.com"));
-		add(CreateImage("stan.png","www.stan.com.au"));
-		add(CreateImage("disney_plus.jpg","www.disneyplus.com"));
-		add(CreateImage("prime.png","www.primevideo.com"));
-		add(CreateImage("sbs.jpg","www.sbs.com.au/ondemand"));
-		add(CreateImage("iview.png","iview.abc.net.au"));
-		add(CreateImage("channel9.png","www.9now.com.au"));
-		add(CreateImage("channel7.png","7plus.com.au"));
-		add(CreateImage("channel10.png","10play.com.au")); 
-		add(CreateImage("justwatch.png","www.justwatch.com"));
-		add(CreateImage("power.png","ShutDown"));
 		
-		setLayout(new GridLayout(3,4));
+		//Goes through the buttons and adds them to the grid based on the number
+		//of squares on the grid.
+		int buttonCount = 0;
+		for (int x = 0; x < width*height; x++) {
+			
+			//Checks if there is an entry, if not adds a 'dead' button.
+			if (buttonCount >= buttons.length) {
+				add(new JButton());
+			} else {
+				add(CreateImage(buttons[x][0],buttons[x][1]));
+			}
+			buttonCount ++;
+		}
+		
+		addKeyListener(this);
+		setFocusable(true);
+		
+				
+		setLayout(new GridLayout(width,height));
 		
 		//Launches frame as fullscreen
-		//device.setFullScreenWindow(this);
-		//setExtendedState(JFrame.MAXIMIZED_BOTH);
-		//setUndecorated(true);
+		device.setFullScreenWindow(this);
+		setExtendedState(JFrame.MAXIMIZED_BOTH);
+		setUndecorated(true);
 		
 		//Non full screen mode for testing purposes
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setBounds(100,100, 800,600);
+		//setDefaultCloseOperation(EXIT_ON_CLOSE);
+		//setBounds(100,100, 800,600);
 		
 		//Activates Panel
 		setVisible(true);
@@ -65,6 +93,28 @@ public class MainFrame extends JFrame {
 		btn.addActionListener(launch);
 		
 		return btn;
+		
+	}
+
+	//Exits the program when the escape button is pressed.
+	@Override
+	public void keyPressed(KeyEvent e) {
+		
+		if (e.getKeyChar() == KeyEvent.VK_ESCAPE) {
+			System.exit(0);
+		}
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
 		
 	}
 
