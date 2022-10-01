@@ -32,7 +32,8 @@ Australia. Also, the program hasn't been configured to launch a VPN.
 
 Finally, many of these websites use passwords, and the kiosk mode, as far as I have discovered, will not accept third party password managers. To be able to launch the websites you will need to save your passwords using the browser's password manager. When you launch the webpage using the kiosk mode, the browser will then be able to access your password.
 
-To exit the JFrame without clicking the power off button (which shuts down the computer) press escape.
+To exit the JFrame without clicking the power off button (which shuts down the computer) press ctrl
+while clicking on that same button.
 
 ##Code
 **MainFrame**
@@ -56,6 +57,10 @@ Removed the hard coding of the grid layout size.
 
 **Wednesday 28 Sept 2022**
 Added a key listener to the JFrame to close the program as a means to escape without shutting down the computer.
+
+**Saturday 1 Oct 2022**
+Added shortcut key to kill the program but not shut down the computer. If hold down ctrl and click
+on the 'shutdown' button the program will be killed.
 
 ##To Do
 1. Add a process to select a video and launch it using the default video player

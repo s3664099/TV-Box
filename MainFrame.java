@@ -1,4 +1,3 @@
-import java.awt.Component;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.GridLayout;
@@ -11,7 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 //Creates the main JFrame which contains buttons to launch the various sites
-public class MainFrame extends JFrame implements KeyListener {
+public class MainFrame extends JFrame {
 	
 	//Sets up full screen mode to remove the OS bars
 	static GraphicsDevice device = GraphicsEnvironment
@@ -54,12 +53,9 @@ public class MainFrame extends JFrame implements KeyListener {
 			}
 			buttonCount ++;
 		}
-		
-		addKeyListener(this);
-		setFocusable(true);
-		
 				
 		setLayout(new GridLayout(width,height));
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		//Launches frame as fullscreen
 		device.setFullScreenWindow(this);
@@ -95,27 +91,4 @@ public class MainFrame extends JFrame implements KeyListener {
 		return btn;
 		
 	}
-
-	//Exits the program when the escape button is pressed.
-	@Override
-	public void keyPressed(KeyEvent e) {
-		
-		if (e.getKeyChar() == KeyEvent.VK_ESCAPE) {
-			System.exit(0);
-		}
-		
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
 }
