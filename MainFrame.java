@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.GridLayout;
@@ -29,6 +30,8 @@ public class MainFrame extends JFrame {
 		{"channel7.png","7plus.com.au"},
 		{"channel10.png","10play.com.au"},
 		{"justwatch.png","www.justwatch.com"},
+		{"play.png","video"},
+		{"folder.png","filesystem"},
 		{"power.png","ShutDown"}
 	};
 	
@@ -47,7 +50,11 @@ public class MainFrame extends JFrame {
 			
 			//Checks if there is an entry, if not adds a 'dead' button.
 			if (buttonCount >= buttons.length) {
-				add(new JButton());
+				
+				JButton button = new JButton();
+				button.setBackground(Color.black);
+				add(button);
+				
 			} else {
 				add(CreateImage(buttons[x][0],buttons[x][1]));
 			}
@@ -63,7 +70,6 @@ public class MainFrame extends JFrame {
 		setUndecorated(true);
 		
 		//Non full screen mode for testing purposes
-		//setDefaultCloseOperation(EXIT_ON_CLOSE);
 		//setBounds(100,100, 800,600);
 		
 		//Activates Panel
@@ -84,8 +90,10 @@ public class MainFrame extends JFrame {
 		//Creates the button
 		JButton btn = new JButton(newIcon);
 		
+		btn.setBackground(Color.black);
+		
 		//Adds an action listener to the button
-		LaunchBrowser launch = new LaunchBrowser(webpage);
+		LaunchBrowser launch = new LaunchBrowser(webpage,btn);
 		btn.addActionListener(launch);
 		
 		return btn;
