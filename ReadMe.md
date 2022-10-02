@@ -4,18 +4,21 @@
 **Date**: 25 September 2022
 
 ## Introduction
+
 This program is designed to turn a machine into a smart TV. The idea is that it creates a JPanel
 that contains buttons that will launch a video streaming site in Kiosk Mode. The JPanel is designed
 to run in full screen mode and will launch upon start up. A power off button is included that will
 shut the machine down when it is pressed. The idea is that the machine will only run this program
 and the browser that is used to display the webpages.
 
-##Requirements
+## Requirements
+
 This program runs on Ubuntu and requires Firefox to run. The program will execute command line
 processes, namely to launch the browser in Kiosk Mode, and to shut down the machine. These commands
 may be specific to Linux, or even Ubuntu.
 
 ## Installation and Instructions
+
 The program will run in Eclipse, however for it to work properly it will need to be compiled. 
 Compile the program as follows:
 
@@ -35,7 +38,7 @@ Finally, many of these websites use passwords, and the kiosk mode, as far as I h
 To exit the JFrame without clicking the power off button (which shuts down the computer) press ctrl
 while clicking on that same button.
 
-##Code
+## Code
 
 **MainFrame**
 
@@ -88,13 +91,14 @@ private void executeCommand(String cmb) - the command is processed to launch the
 
 
 
-##Attempts to Create a KeyListener to close the Browser
+## Attempts to Create a KeyListener to close the Browser
 
-##Issues
+## Issues
 I have not been able to figure out the best way to shut the Kiosk Mode down. At this stage the only
 way to shut it down and return to the main program is by pressing ctrl-F4.
 
-##Updates
+## Updates
+
 **Monday 26 Sept 2022**
 Moved the details of the buttons into an array, and created a loop to add the buttons to the panel.
 Removed the hard coding of the grid layout size.
@@ -112,7 +116,7 @@ Added button to open the file system (to be able to search for videos) and creat
 methods in LaunchBrowser. Moved hardcoded strings out of function calls in launch browser and
 placed them at top of class.
 
-##To Do
+## To Do
 1. Fix issue with IllegalComponentStateException when closing
 2. Add a process to launch the default VPN in the background.
 
