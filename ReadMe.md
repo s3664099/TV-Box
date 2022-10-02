@@ -36,6 +36,7 @@ To exit the JFrame without clicking the power off button (which shuts down the c
 while clicking on that same button.
 
 ##Code
+
 **MainFrame**
 
 device - This variable gets the details of the screen and stores them to enable full screen mode
