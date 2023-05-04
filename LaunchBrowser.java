@@ -1,11 +1,8 @@
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
-
 public class LaunchBrowser implements ActionListener {
 
 	private String webpage;
@@ -19,6 +16,10 @@ public class LaunchBrowser implements ActionListener {
 	public LaunchBrowser(String webpage,JButton btn) {
 		this.webpage = webpage;
 		this.btn = btn;
+
+		if (webpage.equals("www.netflix.com")) {
+			this.browser = "chromium-browser"
+		}
 	}
 	
 	@Override
