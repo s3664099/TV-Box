@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
-
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 public class LaunchBrowser implements ActionListener {
@@ -18,7 +19,7 @@ public class LaunchBrowser implements ActionListener {
 		this.btn = btn;
 
 		if (webpage.equals("www.netflix.com")) {
-			this.browser = "chromium-browser"
+			this.browser = "chromium";
 		}
 	}
 	
